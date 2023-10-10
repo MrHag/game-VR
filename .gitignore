@@ -1,2 +1,8 @@
 /Library
+/obj
+/Logs
+**/*.log
+/Temp
+*.csproj
+/UserSettings
 .vscode
