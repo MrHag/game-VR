@@ -1,0 +1,3 @@
+[submodule "MiBand"]
+	path = MiBand
+	url = https://github.com/MrHag/MiBand
