@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour
@@ -8,37 +7,55 @@ public class Cauldron : MonoBehaviour
 
     HashSet<Ingredient> elements;
 
+    private RecipeCooker cooker;
+
     // Start is called before the first frame update
     void Start()
     {
         elements = new HashSet<Ingredient>();
+        cooker = GetComponent<RecipeCooker>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
+        Ingredient ingredient;
+        if (collision.gameObject.TryGetComponent(out ingredient))
         {
-            Ingredient potion;
-            if(contact.otherCollider.gameObject.TryGetComponent(out potion))
-            {
-                elements.Add(potion);
-                Debug.Log("Potion" + elements.Count);
-            }
+            elements.Add(ingredient);
+            Debug.Log("ADD Ingredient" + elements.Count);
+            Cook();
         }
-
     }
 
     void OnCollisionExit(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
+        Ingredient ingredient;
+        if (collision.gameObject.TryGetComponent(out ingredient))
         {
-            Ingredient potion;
-            if(contact.otherCollider.gameObject.TryGetComponent(out potion))
-            {
-                elements.Remove(potion);
-                Debug.Log("Potion" + elements.Count);
-            }
+            elements.Remove(ingredient);
+            Debug.Log("REMOVE Ingredient" + elements.Count);
         }
+    }
+
+    void Cook(){
+        if(elements.Count == 1)
+            return;
+
+        Potion potion;
+
+        if(!cooker.Cook(elements, out potion))
+            return;
+
+        foreach(var element in elements)
+        {
+            Destroy(element.gameObject);
+        }
+        elements.Clear();
+
+        var pos = transform.position;
+        pos.y += 0.3f;
+
+        Instantiate(potion, pos, transform.rotation);
     }
 
     // Update is called once per frame
