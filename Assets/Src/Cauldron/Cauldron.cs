@@ -37,16 +37,17 @@ public class Cauldron : MonoBehaviour
         }
     }
 
-    void Cook(){
-        if(elements.Count == 1)
+    void Cook()
+    {
+        if (elements.Count == 1)
             return;
 
         Potion potion;
 
-        if(!cooker.Cook(elements, out potion))
+        if (!cooker.Cook(elements, out potion))
             return;
 
-        foreach(var element in elements)
+        foreach (var element in elements)
         {
             Destroy(element.gameObject);
         }
@@ -56,11 +57,5 @@ public class Cauldron : MonoBehaviour
         pos.y += 0.3f;
 
         Instantiate(potion, pos, transform.rotation);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
