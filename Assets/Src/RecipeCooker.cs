@@ -12,11 +12,6 @@ public class RecipeCooker : MonoBehaviour
     {
 
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public bool Cook(ICollection<Ingredient> ingredients, out Potion pot)
     {

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2579984500738424176}
   - component: {fileID: 1850336731568296463}
   - component: {fileID: 7182366569592394251}
-  - component: {fileID: -2168397182261967431}
+  - component: {fileID: 1482882908178733970}
   m_Layer: 0
-  m_Name: RootIngredient
+  m_Name: Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2579984500738424173
 MeshFilter:
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0197313e8136b04dbd9773d57c0bbdf, type: 2}
+  - {fileID: 2100000, guid: b64f102285ab85440978a57666675586, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-2168397182261967431
+--- !u!114 &1482882908178733970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,6 +344,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2579984500738424182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2245601b88af1574286fac17d2f327f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e13d8154616fa84786395e2a8b9f975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -5,16 +5,38 @@ public class Potion : MonoBehaviour
     public Color color;
 
     public Ingredient[] ingredients;
-    // Start is called before the first frame update
-    protected void Start()
+
+    public GameObject liquidObject;
+
+    private ChangePivot pivotChanger;
+
+    [Range(0.0f, 1.0f)]
+    public float filling;
+
+    public float max_filling;
+    public float min_filling;
+
+    private void OnValidate()
     {
-        var rend = GetComponent<Renderer>();
-        rend.material.color = color;
+        if (pivotChanger)
+            CalcFilling();
     }
 
-    // Update is called once per frame
-    protected void Update()
+    private void CalcFilling()
     {
-        
+        pivotChanger.pivotPosition = new Vector3(0, -filling.Remap(0.0f, 1.0f, min_filling, max_filling), 0);
+    }
+
+    protected void Awake()
+    {
+        pivotChanger = liquidObject.GetComponent<ChangePivot>();
+
+    }
+
+    protected void Start()
+    {
+        CalcFilling();
+        //var rend = GetComponent<Renderer>();
+        //rend.material.color = color;
     }
 }
