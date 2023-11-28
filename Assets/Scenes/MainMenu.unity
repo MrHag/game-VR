@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f30a660f62f18ed4c8a9178ee7522b0f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.09421747, g: 0.29927787, b: 0.2458708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -408,8 +408,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 2132936140}
   m_HandleRect: {fileID: 1233985245}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.0001
   m_OnValueChanged:
@@ -426,7 +426,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &107867610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,7 +2301,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5161124730177040703, guid: 4d9be7b66ca37d740a77149b53896ebb,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 44e4a4c9700b60a4c90ae6846e039d11, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2611,10 +2611,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 377979059}
   m_HandleRect: {fileID: 496085875}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2648,6 +2648,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2801145015842976861, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801145015842976861, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801145015842976861, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801145015842976861, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3792333333421150992, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -2662,6 +2682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6490724114199501982, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
@@ -2810,6 +2835,11 @@ PrefabInstance:
       objectReference: {fileID: 1058124507}
     - target: {fileID: 7719834116415482220, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719834116415482220, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
       propertyPath: m_RenderMode
       value: 2
       objectReference: {fileID: 0}
@@ -2901,6 +2931,7 @@ MonoBehaviour:
   musicSource: {fileID: 849930288}
   SFXSource: {fileID: 1445116485}
   background: {fileID: 8300000, guid: 44e4a4c9700b60a4c90ae6846e039d11, type: 3}
+  SFX: {fileID: 8300000, guid: 5b453b8f1d693b1408d913f1fc41f4d2, type: 3}
 --- !u!4 &1022862534
 Transform:
   m_ObjectHideFlags: 0
@@ -3431,7 +3462,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -9023162063188356824, guid: 4d9be7b66ca37d740a77149b53896ebb,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5b453b8f1d693b1408d913f1fc41f4d2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
