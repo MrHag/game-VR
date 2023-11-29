@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 717227e5dda134143958b59dbc0e1ff1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 717227e5dda134143958b59dbc0e1ff1,
         type: 3}
@@ -115,9 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71319c5b0e3bf464f9ca5b65010b311e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  innerColor: {r: 1, g: 0.21960786, b: 0.25882354, a: 1}
   ingredients: []
   liquidObject: {fileID: 8781295456292276258}
+  prefab: {fileID: 7619904264735725998}
   filling: 0.68
   max_filling: 0.1507
   min_filling: 0.008

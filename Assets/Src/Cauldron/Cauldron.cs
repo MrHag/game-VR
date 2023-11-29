@@ -56,6 +56,12 @@ public class Cauldron : MonoBehaviour
         var pos = transform.position;
         pos.y += 0.3f;
 
-        Instantiate(potion, pos, transform.rotation);
+        var gameObject = Instantiate(potion.prefab, pos, transform.rotation);
+
+        if(gameObject.TryGetComponent(out Rigidbody rigidbody))
+        {
+            rigidbody.isKinematic = true;
+        }
+
     }
 }

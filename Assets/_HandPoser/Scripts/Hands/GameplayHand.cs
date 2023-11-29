@@ -22,25 +22,43 @@ public class GameplayHand : BaseHand
 
     private void TryApplyObjectPose(SelectEnterEventArgs interactable)
     {
-        if (interactable.interactableObject.transform.gameObject.TryGetComponent(out PoseContainer poseContainer))
+        GameObject gameObject = interactable.interactableObject.transform.gameObject;
+
+        if (gameObject.TryGetComponent(out IGrabbing grabbed))
+        {
+            grabbed.OnGrabStart();
+        }
+
+        if (gameObject.TryGetComponent(out PoseContainer poseContainer))
         {
             ApplyPose(poseContainer.pose);
         }
         else
         {
-            print("OBJECT POSE ERROR");
+            Debug.LogError("OBJECT POSE ERROR");
         }
     }
 
     private void TryApplyDefaultPose(SelectExitEventArgs interactable)
     {
-        if (interactable.interactableObject.transform.gameObject.TryGetComponent(out PoseContainer poseContainer))
+        GameObject gameObject = interactable.interactableObject.transform.gameObject;
+        if (gameObject.TryGetComponent(out Rigidbody rigidbody))
+        {
+            rigidbody.isKinematic = false;
+        }
+
+        if (gameObject.TryGetComponent(out IGrabbing grabbed))
+        {
+            grabbed.OnGrabEnd();
+        }
+
+        if (gameObject.TryGetComponent(out PoseContainer poseContainer))
         {
             ApplyDefaultPose();
         }
         else
         {
-            print("OBJECT POSE ERROR");
+            Debug.LogError("OBJECT POSE ERROR");
         }
     }
 
@@ -62,7 +80,7 @@ public class GameplayHand : BaseHand
     private void OnValidate()
     {
         // Let's have this done automatically, but not hide the requirement
-        if(!targetInteractor)
+        if (!targetInteractor)
             targetInteractor = GetComponentInParent<XRBaseInteractor>();
     }
 }

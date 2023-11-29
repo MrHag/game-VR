@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c019e2363e3af234a8e06b1d260cdd68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c019e2363e3af234a8e06b1d260cdd68,
         type: 3}
@@ -136,15 +136,15 @@ MonoBehaviour:
     shaderName: Assets/Prefabs/Potions/LiquidShader.shadergraph
     materialName: bottle_liquid
     type: 0
-    value: {x: 0.9245283, y: 0, z: 0.39519066, w: 1}
-    instanceOverride: 0
+    value: {x: 0.6313726, y: 0.2627451, z: 0.21176472, w: 1}
+    instanceOverride: 1
   - name: _InnerColor
     displayName: _InnerColor
     shaderName: Assets/Prefabs/Potions/LiquidShader.shadergraph
     materialName: bottle_liquid
     type: 0
-    value: {x: 1, y: 0, z: 0.42745113, w: 1}
-    instanceOverride: 0
+    value: {x: 0.6981132, y: 0.2954209, z: 0.23972942, w: 1}
+    instanceOverride: 1
 --- !u!114 &6913233956425573435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,9 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71319c5b0e3bf464f9ca5b65010b311e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.6313726, g: 0.2627451, b: 0.21176472, a: 1}
+  innerColor: {r: 0.69803923, g: 0.29411766, b: 0.2392157, a: 1}
   ingredients: []
   liquidObject: {fileID: 698225444869525266}
+  prefab: {fileID: 3857231471476686554}
   filling: 0.503
   max_filling: 0.092
   min_filling: 0

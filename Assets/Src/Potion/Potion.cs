@@ -4,11 +4,17 @@ public class Potion : MonoBehaviour
 {
     public Color color;
 
+    public Color innerColor;
+
     public Ingredient[] ingredients;
 
     public GameObject liquidObject;
 
+    public GameObject prefab;
+
     private ChangePivot pivotChanger;
+
+    private Renderer rend;
 
     [Range(0.0f, 1.0f)]
     public float filling;
@@ -30,13 +36,23 @@ public class Potion : MonoBehaviour
     protected void Awake()
     {
         pivotChanger = liquidObject.GetComponent<ChangePivot>();
-
+        rend =  liquidObject.GetComponent<Renderer>();
     }
 
     protected void Start()
     {
         CalcFilling();
+        
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+
+        rend.GetPropertyBlock(block);
+
+        block.SetColor("_Color", color);
+        block.SetColor("_InnerColor", innerColor);
+        rend.SetPropertyBlock(block);
+
         //var rend = GetComponent<Renderer>();
         //rend.material.color = color;
     }
+
 }
