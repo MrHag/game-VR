@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c81ebf3b74cfcb147bbbfb68d0c29473,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c81ebf3b74cfcb147bbbfb68d0c29473,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95253
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c81ebf3b74cfcb147bbbfb68d0c29473,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1970468
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c81ebf3b74cfcb147bbbfb68d0c29473,
         type: 3}
@@ -186,14 +186,14 @@ MonoBehaviour:
     shaderName: Assets/Prefabs/Potions/LiquidShader.shadergraph
     materialName: bottle_liquid
     type: 0
-    value: {x: 0.9528302, y: 0.29124242, z: 0.65516096, w: 1}
+    value: {x: 0.95294124, y: 0.2901961, z: 0.654902, w: 1}
     instanceOverride: 1
   - name: _InnerColor
     displayName: _InnerColor
     shaderName: Assets/Prefabs/Potions/LiquidShader.shadergraph
     materialName: bottle_liquid
     type: 0
-    value: {x: 1, y: 0.38113207, z: 0.7216925, w: 1}
+    value: {x: 1, y: 0.3803922, z: 0.72156864, w: 1}
     instanceOverride: 1
 --- !u!114 &7443511323755337542
 MonoBehaviour:

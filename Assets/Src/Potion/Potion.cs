@@ -26,6 +26,27 @@ public class Potion : MonoBehaviour
     {
         if (pivotChanger)
             CalcFilling();
+
+        var matOverr = liquidObject.GetComponent<MaterialOverride>();
+
+        var i = matOverr.overrideList.FindIndex(d => d.name == "_Color");
+        var overrideData = matOverr.overrideList[i];
+        overrideData.value = color;
+
+        matOverr.overrideList[i] = overrideData;
+
+        i = matOverr.overrideList.FindIndex(d => d.name == "_InnerColor");
+
+        overrideData = matOverr.overrideList[i];
+        overrideData.value = innerColor;
+
+        matOverr.overrideList[i] = overrideData;
+
+        matOverr.ApplyMaterialProperties();
+
+        //block.SetColor("_Color", color);
+        //block.SetColor("_InnerColor", innerColor);
+
     }
 
     private void CalcFilling()
@@ -36,13 +57,13 @@ public class Potion : MonoBehaviour
     protected void Awake()
     {
         pivotChanger = liquidObject.GetComponent<ChangePivot>();
-        rend =  liquidObject.GetComponent<Renderer>();
+        rend = liquidObject.GetComponent<Renderer>();
     }
 
     protected void Start()
     {
         CalcFilling();
-        
+
         MaterialPropertyBlock block = new MaterialPropertyBlock();
 
         rend.GetPropertyBlock(block);

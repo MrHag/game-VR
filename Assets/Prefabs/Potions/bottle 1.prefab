@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0388b5e3b010deb4a93f19aa4da13e51,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7730613
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0388b5e3b010deb4a93f19aa4da13e51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.971
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0388b5e3b010deb4a93f19aa4da13e51,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.754
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0388b5e3b010deb4a93f19aa4da13e51,
         type: 3}
@@ -198,9 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.92549026, g: 0, b: 0.39607847, a: 1}
   innerColor: {r: 1, g: 0, b: 0.427451, a: 1}
-  ingredients:
-  - {fileID: -2168397182261967431, guid: 6dc5c59d656fb284cbfd50783c31fe3e, type: 3}
-  - {fileID: -2168397182261967431, guid: 6dc5c59d656fb284cbfd50783c31fe3e, type: 3}
+  ingredients: []
   liquidObject: {fileID: 3823944631670797753}
   prefab: {fileID: 6339651476949299814}
   filling: 0.4

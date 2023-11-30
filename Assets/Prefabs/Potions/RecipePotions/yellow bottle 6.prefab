@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7313352523996439807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.x
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.y
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5338013
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.951036
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5368341
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471590902285076, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619904264735725998, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: m_Name
+      value: yellow bottle 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: color.g
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: color.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: innerColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: innerColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da647453ad7ba8344b1798c91ef05a46, type: 3}

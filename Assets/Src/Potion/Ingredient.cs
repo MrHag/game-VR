@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled
@@ -17,10 +18,16 @@ public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled
 
     private bool firstGrab = true;
 
+    public event Action<GameObject> ODestroy;
+
     // Start is called before the first frame update
     void Start()
     {
+    }
 
+    void OnDestroy()
+    {
+        ODestroy?.Invoke(gameObject);
     }
 
     private void OnUnactivityTimer()
