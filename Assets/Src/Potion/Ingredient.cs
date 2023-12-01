@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled
+public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled, IWorkZone
 {
 
     private Coroutine unactivityTimer;
@@ -43,11 +43,11 @@ public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled
 
     public void OnGrabStart()
     {
-        if (firstGrab)
-        {
-            firstGrab = false;
-            Spawn?.Invoke();
-        }
+        // if (firstGrab)
+        // {
+        //     firstGrab = false;
+        //     Spawn?.Invoke();
+        // }
     }
 
     public void OnGrabEnd()
