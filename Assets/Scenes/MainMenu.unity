@@ -2647,7 +2647,7 @@ PrefabInstance:
     - target: {fileID: 1013398931285851192, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1071293925553678386, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
@@ -2679,7 +2679,7 @@ PrefabInstance:
     - target: {fileID: 2432698711328542861, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625625819130932163, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
@@ -2785,8 +2785,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 684301724c136724fa00e124a36998fe,
+        type: 3}
+    - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797189985014196030, guid: fb86b5dc7b21aa0409d1ff848547635a,
+        type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6098095941092987777, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
@@ -2852,12 +2873,12 @@ PrefabInstance:
     - target: {fileID: 6759705536873125834, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1949.3282
+      value: 2300
       objectReference: {fileID: 0}
     - target: {fileID: 6759705536873125834, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1063.7511
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 6759705536873125834, guid: fb86b5dc7b21aa0409d1ff848547635a,
         type: 3}
@@ -3855,7 +3876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860107275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.65, z: -2.66}
+  m_LocalPosition: {x: 0, y: 2.65, z: -1.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
