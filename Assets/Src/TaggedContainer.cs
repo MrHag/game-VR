@@ -34,23 +34,11 @@ public class TaggedContainer<T> : MonoBehaviour
                 if (elem.tag == "Default")
                     hasDefault = true;
             }
-        
-        if(!hasDefault)
+
+        if (!hasDefault)
         {
-            elements.Insert(0,new TaggedElement<T>(){tag = "Default", InspectorName = "Default"});
+            elements.Insert(0, new TaggedElement<T>() { tag = "Default", InspectorName = "Default" });
         }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

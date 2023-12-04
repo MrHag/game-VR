@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Mono.Cecil;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -15,9 +16,9 @@ public enum Side
 [Serializable]
 public class Book : MonoBehaviour
 {
-    public TaggedTextureContainer editor_textures;
+    public TaggedPotionTextureContainer editor_textures;
 
-    private Dictionary<string, Texture2D> textures;
+    private Dictionary<string, SidedTexture> textures;
 
     public MeshRenderer leftMeshRender;
 
@@ -27,7 +28,7 @@ public class Book : MonoBehaviour
 
     private Coroutine _rightTransition;
 
-    IEnumerator Transition(float time, int steps, MeshRenderer mesh, string tag, Action callback)
+    IEnumerator Transition(float time, int steps, MeshRenderer mesh, string tag, Side side, Action callback)
     {
         var stepTime = time / steps;
         var opacity = mesh.material.GetFloat("_Opacity");
@@ -40,7 +41,9 @@ public class Book : MonoBehaviour
             mesh.material.SetFloat("_Opacity", opacity);
         }
 
-        mesh.material.SetTexture("_Texture", textures[tag]);
+        var texture = textures[tag];
+
+        mesh.material.SetTexture("_Texture", side == Side.Left ? texture.left : texture.right);
 
         opacity = 1.0f;
         opacityStep = 1.0f / steps;
@@ -69,7 +72,7 @@ public class Book : MonoBehaviour
             if (_leftTransition != null)
                 StopCoroutine(_leftTransition);
 
-            _leftTransition = StartCoroutine(Transition(2.0f, 100, mesh, tag, callback));
+            _leftTransition = StartCoroutine(Transition(2.0f, 100, mesh, tag, Side.Left, callback));
 
         }
         else
@@ -81,7 +84,7 @@ public class Book : MonoBehaviour
             if (_rightTransition != null)
                 StopCoroutine(_rightTransition);
 
-            _rightTransition = StartCoroutine(Transition(2.0f, 100, mesh, tag, callback));
+            _rightTransition = StartCoroutine(Transition(2.0f, 100, mesh, tag, Side.Right, callback));
 
         }
 
@@ -91,13 +94,13 @@ public class Book : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textures = new Dictionary<string, Texture2D>();
+        textures = new Dictionary<string, SidedTexture>();
         foreach (var elem in editor_textures.elements)
         {
             textures[elem.tag] = elem.value;
         }
 
-        LoadTexture("Rec1", Side.Left);
-        LoadTexture("Rec2", Side.Right);
+        // LoadTexture("Rec1", Side.Left);
+        // LoadTexture("Rec2", Side.Right);
     }
 }

@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
         type: 3}
+      propertyPath: color.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
       propertyPath: color.b
       value: 0.6132076
       objectReference: {fileID: 0}
@@ -22,6 +27,16 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: opacity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: innerColor.a
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
         type: 3}
@@ -38,6 +53,34 @@ PrefabInstance:
       propertyPath: innerColor.r
       value: 0.6792453
       objectReference: {fileID: 0}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: ingredients.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: ingredients.Array.data[0]
+      value: 
+      objectReference: {fileID: 5255760282399713403, guid: 81d0ba8d1cbbc17459cbf745b906a410,
+        type: 3}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: ingredients.Array.data[1]
+      value: 
+      objectReference: {fileID: 3343967252244452783, guid: ed77e134c1564d240a0064665fa250b4,
+        type: 3}
+    - target: {fileID: 1423548807944644873, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: ingredients.Array.data[2]
+      value: 
+      objectReference: {fileID: 2346171331928563533, guid: 1bca5ede02f43864391859d4803b963b,
+        type: 3}
+    - target: {fileID: 3441536172634780750, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.w
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3441536172634780750, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
         type: 3}
       propertyPath: overrideList.Array.data[2].value.x
@@ -52,6 +95,11 @@ PrefabInstance:
         type: 3}
       propertyPath: overrideList.Array.data[2].value.z
       value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441536172634780750, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.w
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3441536172634780750, guid: c8fb55d2c5f244443ae44364ab4ae2f3,
         type: 3}

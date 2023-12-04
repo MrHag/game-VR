@@ -1,4 +1,4 @@
 
-public interface IWorkZone
+public interface IWorkZone : IDestroyable
 {
 }

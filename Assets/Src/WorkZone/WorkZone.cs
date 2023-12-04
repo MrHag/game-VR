@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WorkZone : MonoBehaviour
@@ -7,50 +9,63 @@ public class WorkZone : MonoBehaviour
 
     int waitDestroySeconds = 5;
 
-    Dictionary<GameObject, Coroutine> objectsCoroutines;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    static Dictionary<GameObject, (Coroutine, int)> objectsCoroutines = new Dictionary<GameObject, (Coroutine, int)>();
 
     IEnumerator DelayDestroy(GameObject gameObject)
     {
         yield return new WaitForSeconds(waitDestroySeconds);
-        Destroy(gameObject);
+        if (!gameObject.IsDestroyed())
+            Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
     {
-
         if (other.TryGetComponent(out IWorkZone component))
         {
-
-            if (objectsCoroutines.TryGetValue(other.gameObject, out Coroutine coroutine))
+            if (objectsCoroutines.TryGetValue(other.gameObject, out (Coroutine coroutine, int level) coroutineTuple))
             {
-                StopCoroutine(coroutine);
+                coroutineTuple.level += 1;
 
-                objectsCoroutines.Remove(other.gameObject);
+                if (coroutineTuple.coroutine != null)
+                    StopCoroutine(coroutineTuple.coroutine);
+
+                objectsCoroutines[other.gameObject] = coroutineTuple;
             }
+            else
+            {
+
+                component.ODestroy += OnObjectDestroy;
+
+                objectsCoroutines.Add(other.gameObject, (null, 1));
+            }
+
         }
 
+    }
+
+    void OnObjectDestroy(GameObject gameObject)
+    {
+        if (gameObject.TryGetComponent(out IWorkZone component))
+        {
+            objectsCoroutines.Remove(gameObject);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-
         if (other.TryGetComponent(out IWorkZone component))
         {
-            var coroutine = StartCoroutine(DelayDestroy(other.gameObject));
+            if (objectsCoroutines.TryGetValue(other.gameObject, out (Coroutine coroutine, int level) coroutineTuple))
+            {
+                coroutineTuple.level -= 1;
 
-            objectsCoroutines.Add(other.gameObject, coroutine);
+                if (coroutineTuple.level <= 0)
+                {
+                    coroutineTuple.coroutine = StartCoroutine(DelayDestroy(other.gameObject));
+                }
+
+                objectsCoroutines[other.gameObject] = coroutineTuple;
+            }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

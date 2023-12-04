@@ -48,11 +48,11 @@ public class PulseControler : MonoBehaviour
     {
         this.pulse = pulse;
 
-        if (pulse <= 94)
+        if (pulse <= 70)
         {
             pulseStatus = PulseStatus.LOW;
         }
-        else if (pulse >= 100)
+        else if (pulse >= 90)
         {
             pulseStatus = PulseStatus.HIGH;
         }

@@ -8,6 +8,8 @@ public class Flower : MonoBehaviour
 
     public PulseControler pulseControler;
 
+    public Light flowerLight;
+
     public bool open;
 
     public bool half;
@@ -62,17 +64,20 @@ public class Flower : MonoBehaviour
                 {
                     Open = true;
                     Half = false;
+                    flowerLight.intensity = 1.0f;
                     break;
                 }
             case PulseStatus.HIGH:
                 {
                     Open = false;
                     Half = false;
+                    flowerLight.intensity = 0.05f;
                     break;
                 }
             case PulseStatus.NORMAL:
                 {
                     Half = true;
+                    flowerLight.intensity = 0.01f;
                     break;
                 }
         }

@@ -6,11 +6,17 @@ public class Potion : MonoBehaviour
 
     public Color innerColor;
 
+    public float opacity;
+
     public Ingredient[] ingredients;
 
     public GameObject liquidObject;
 
     public GameObject prefab;
+
+    [SerializeField]
+    private string _potionName;
+    public string PotionName { get => _potionName; }
 
     private ChangePivot pivotChanger;
 
@@ -24,8 +30,20 @@ public class Potion : MonoBehaviour
 
     private void OnValidate()
     {
+        _potionName = name;
+
         if (pivotChanger)
             CalcFilling();
+
+
+        if (opacity > 1.0f)
+            opacity = 1.0f;
+        else if (opacity < 0.0f)
+            opacity = 0.0f;
+
+        color.a = opacity;
+
+        innerColor.a = opacity;
 
         var matOverr = liquidObject.GetComponent<MaterialOverride>();
 

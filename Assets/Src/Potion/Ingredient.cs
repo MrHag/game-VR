@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled, IWorkZone
@@ -20,6 +21,10 @@ public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled, IWorkZone
 
     public event Action<GameObject> ODestroy;
 
+    [SerializeField]
+    private string _ingredientName;
+    public string IngredientName { get => _ingredientName; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,11 @@ public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled, IWorkZone
     void OnDestroy()
     {
         ODestroy?.Invoke(gameObject);
+    }
+
+    void OnValidate()
+    {
+        _ingredientName = name;
     }
 
     private void OnUnactivityTimer()

@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
         type: 3}
+      propertyPath: overrideList.Array.data[2].value.w
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
       propertyPath: overrideList.Array.data[2].value.x
       value: 0.8962264
       objectReference: {fileID: 0}
@@ -17,6 +22,11 @@ PrefabInstance:
         type: 3}
       propertyPath: overrideList.Array.data[2].value.y
       value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.w
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5679201092543559166, guid: da647453ad7ba8344b1798c91ef05a46,
         type: 3}
@@ -90,6 +100,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
         type: 3}
+      propertyPath: color.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
       propertyPath: color.g
       value: 0.8962264
       objectReference: {fileID: 0}
@@ -97,6 +112,16 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: opacity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: innerColor.a
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
         type: 3}
@@ -108,6 +133,29 @@ PrefabInstance:
       propertyPath: innerColor.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: ingredients.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: ingredients.Array.data[0]
+      value: 
+      objectReference: {fileID: 4952734818586857091, guid: bb9febfbf55b9c5459cbcead1a91e3e8,
+        type: 3}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: ingredients.Array.data[1]
+      value: 
+      objectReference: {fileID: 4880290088728063583, guid: b78c8009d5b336740af0e18d0d20025d,
+        type: 3}
+    - target: {fileID: 8954242762490907286, guid: da647453ad7ba8344b1798c91ef05a46,
+        type: 3}
+      propertyPath: ingredients.Array.data[2]
+      value: 
+      objectReference: {fileID: 42144305440255207, guid: 97556b7d235cd2e4399ef1b5c2a459d3,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
