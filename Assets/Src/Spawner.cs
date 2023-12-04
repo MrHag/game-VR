@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,28 +6,88 @@ public class Spawner : MonoBehaviour
 
     public GameObject prefab;
 
-    public Transform transf;
+    private Transform transf;
+
+    private Coroutine spawning;
 
     private float spawnDelay = 5.0f;
     // Start is called before the first frame update
 
-    void Awake()
+    // void Awake()
+    // {
+    //     //MeshFilter filter = GetComponent<MeshFilter>();
+
+    //     // filter.sharedMesh = null;
+    //     // render.sharedMaterial = null;
+    // }
+
+    private int _objectsCount = 0;
+
+    private int ObjectsCount
     {
-        MeshFilter filter = GetComponent<MeshFilter>();
-        MeshRenderer render = GetComponent<MeshRenderer>();
-        filter.sharedMesh = null;
-        render.sharedMaterial = null;
+        get
+        {
+            return _objectsCount;
+        }
+        set
+        {
+            if (value <= 0)
+            {
+                OnSpawnStart();
+            }
+            else if (_objectsCount <= 0)
+            {
+                OnSpawnStop();
+            }
+
+            _objectsCount = value;
+        }
     }
 
     void Start()
     {
+        MeshRenderer render = GetComponent<MeshRenderer>();
+        render.enabled = false;
+
         transf = transform;
         Spawn();
     }
 
-    public void OnSpawn()
+    void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(SpawnDelay());
+
+        if (other.TryGetComponent(out ISpawnControled spawnControled))
+        {
+            ObjectsCount += 1;
+            spawnControled.ODestroy += OnObjectDestroy;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out ISpawnControled spawnControled))
+        {
+            ObjectsCount -= 1;
+            spawnControled.ODestroy -= OnObjectDestroy;
+        }
+    }
+
+    private void OnObjectDestroy(GameObject sender)
+    {
+        ObjectsCount -= 1;
+    }
+
+    public void OnSpawnStart()
+    {
+        print("START SPAWNING");
+        spawning = StartCoroutine(SpawnDelay());
+    }
+
+    public void OnSpawnStop()
+    {
+        print("STOP SPAWNING");
+        if (spawning != null)
+            StopCoroutine(spawning);
     }
 
     private IEnumerator SpawnDelay()
@@ -43,12 +102,19 @@ public class Spawner : MonoBehaviour
 
         if (gameObject.TryGetComponent(out ISpawnControled spawnControled))
         {
-            spawnControled.Spawn += OnSpawn;
+            spawnControled.Spawn += OnSpawnStart;
         }
     }
 
     void OnValidate()
     {
+
+        if (!prefab.TryGetComponent(out ISpawnControled spawnControled))
+        {
+            Debug.LogError("Cant find script that implements ISpawnControled");
+            return;
+        }
+
         MeshFilter filter = GetComponent<MeshFilter>();
         MeshRenderer render = GetComponent<MeshRenderer>();
         filter.sharedMesh = prefab.GetComponent<MeshFilter>().sharedMesh;

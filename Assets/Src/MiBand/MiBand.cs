@@ -1,13 +1,55 @@
+using System;
 using System.Diagnostics;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MiBand : MonoBehaviour
 {
+
+    public event Action<int> Pulse;
+
+    private bool _startApp = false;
+
+    public bool startApp;
+
+    private Process proc;
+
+    public bool StartApp
+    {
+        get
+        {
+            return _startApp;
+        }
+        set
+        {
+            if (_startApp != value)
+            {
+                _startApp = value;
+
+                startApp = _startApp;
+
+                if (_startApp)
+                {
+                    StartApplication();
+                }
+                else
+                {
+                    StopApplication();
+                }
+            }
+        }
+    }
+
     public string processPath = "./MiBand_Build/miband.exe";
     // Start is called before the first frame update
     void Start()
     {
-        var proc = new Process
+        // console.writeline(output);
+        StartApp = true;
+    }
+
+    void StartApplication()
+    {
+        proc = new Process
         {
 
             StartInfo = new ProcessStartInfo(processPath)
@@ -19,17 +61,19 @@ public class NewBehaviourScript : MonoBehaviour
             }
         };
 
-        proc.OutputDataReceived += (s, d) => { 
+        proc.OutputDataReceived += (s, d) =>
+        {
             var packet = JsonUtility.FromJson<Packet>(d.Data);
-            
-            switch(packet.type)
+
+            switch (packet.type)
             {
                 case Types.HEARTRATE:
-                    UnityEngine.Debug.Log("HEARTRATE: "+packet.value); 
+                    UnityEngine.Debug.Log("HEARTRATE: " + packet.value);
+                    Pulse?.Invoke(int.Parse(packet.value));
                     break;
 
                 case Types.MESSAGE:
-                    UnityEngine.Debug.Log("MESSAGE: "+packet.value); 
+                    UnityEngine.Debug.Log("MESSAGE: " + packet.value);
                     break;
             }
 
@@ -37,7 +81,16 @@ public class NewBehaviourScript : MonoBehaviour
 
         UnityEngine.Debug.Log("Process status: " + proc.Start());
         proc.BeginOutputReadLine();
-        // console.writeline(output);
+    }
+
+    void StopApplication()
+    {
+        proc.Close();
+    }
+
+    void OnValidate()
+    {
+        StartApp = startApp;
     }
 
     // Update is called once per frame

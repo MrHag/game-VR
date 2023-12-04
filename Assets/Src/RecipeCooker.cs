@@ -13,13 +13,16 @@ public class RecipeCooker : MonoBehaviour
 
     }
 
-    public bool Cook(ICollection<Ingredient> ingredients, out Potion pot)
+    public bool Cook(ICollection<string> ingredients, out Potion pot, out bool possiblyCook)
     {
+
+        possiblyCook = false;
+
         pot = null;
         foreach (var potion in potions)
         {
-            if (ingredients.Count != potion.ingredients.Length)
-                continue;
+            // if (ingredients.Count != potion.ingredients.Length)
+            //     continue;
 
             var list = new List<Ingredient>(potion.ingredients);
 
@@ -29,7 +32,7 @@ public class RecipeCooker : MonoBehaviour
                 for (int i = 0; i < list.Count; i++)
                 {
                     Ingredient otherIng = list[i];
-                    if (ing.GetType() == otherIng.GetType())
+                    if (ing == otherIng.IngredientName)
                     {
                         list.RemoveAt(i);
                         return true;
@@ -38,10 +41,15 @@ public class RecipeCooker : MonoBehaviour
                 return false;
             });
 
-            if (count == ingredients.Count)
+            if (count == potion.ingredients.Length)
             {
                 pot = potion;
                 return true;
+            }
+            else
+            if (count == ingredients.Count)
+            {
+                possiblyCook = true;
             }
         }
         return false;
