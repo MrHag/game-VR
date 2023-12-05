@@ -28,6 +28,8 @@ public class Book : MonoBehaviour
 
     private Coroutine _rightTransition;
 
+    public Audio wrapping;
+
     IEnumerator Transition(float time, int steps, MeshRenderer mesh, string tag, Side side, Action callback)
     {
         var stepTime = time / steps;
@@ -62,7 +64,7 @@ public class Book : MonoBehaviour
 
     public void LoadTexture(string tag, Side side)
     {
-
+        wrapping.Play();
         if (side == Side.Left)
         {
             MeshRenderer mesh = leftMeshRender;

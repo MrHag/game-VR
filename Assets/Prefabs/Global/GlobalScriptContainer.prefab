@@ -85,6 +85,10 @@ MonoBehaviour:
   book: {fileID: 0}
   pulseControler: {fileID: 0}
   taggedRecipeCategoryContainer: {fileID: 0}
+  audioManager: {fileID: 0}
+  musicPlayer: {fileID: 0}
+  taggedMusicCategoryContainer: {fileID: 0}
+  BottleCrush: {fileID: 0}
 --- !u!114 &9176735677573552241
 MonoBehaviour:
   m_ObjectHideFlags: 0

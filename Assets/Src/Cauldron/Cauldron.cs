@@ -12,11 +12,18 @@ public class Cauldron : MonoBehaviour
 
     private RecipeCooker cooker;
 
+    public Audio defaultLoop;
+
+    public Audio active;
+
+    public Audio bulb;
+
     // Start is called before the first frame update
     void Start()
     {
         elements = new List<string>();
         cooker = GetComponent<RecipeCooker>();
+        defaultLoop.Play();
     }
 
     void OnTriggerEnter(Collider other)
@@ -62,6 +69,8 @@ public class Cauldron : MonoBehaviour
         // if (elements.Count == 1)
         //     return;
 
+        bulb.Play();
+
         Potion potion;
 
         bool possiblyCook;
@@ -72,17 +81,21 @@ public class Cauldron : MonoBehaviour
             {
                 print("CANT COOK");
                 smoke.Play(1.0f, Color.red);
+                active.Play(1.0f);
                 elements.Clear();
                 return;
             }
             print("CAN COOK");
             smoke.Play(1.0f, Color.yellow);
+            active.Play(1.0f);
             return;
         }
 
         print("COOKING");
 
         smoke.Play(3.0f, Color.green);
+
+        active.Play(3.0f);
 
         elements.Clear();
 
