@@ -65,6 +65,8 @@ public class MiBand : MonoBehaviour
         {
             var packet = JsonUtility.FromJson<Packet>(d.Data);
 
+            UnityEngine.Debug.Log("JSON: " + d.Data);
+
             switch (packet.type)
             {
                 case Types.HEARTRATE:

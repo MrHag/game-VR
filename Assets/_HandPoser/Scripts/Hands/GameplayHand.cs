@@ -8,9 +8,12 @@ public class GameplayHand : BaseHand
 
     [SerializeField] private XRBaseInteractor targetInteractor = null;
 
+
+    public bool selected;
+
     private void OnEnable()
     {
-        targetInteractor.selectEntered.AddListener(TryApplyObjectPose);
+        targetInteractor.selectEntered.AddListener(SelectEnter);
         targetInteractor.selectExited.AddListener(TryApplyDefaultPose);
     }
 
@@ -20,8 +23,20 @@ public class GameplayHand : BaseHand
         targetInteractor.selectExited.RemoveListener(TryApplyDefaultPose);
     }
 
-    private void TryApplyObjectPose(SelectEnterEventArgs interactable)
+    private void SelectEnter(SelectEnterEventArgs interactable)
     {
+
+    }
+
+    private void SelectExit(SelectEnterEventArgs interactable)
+    {
+
+    }
+
+    public void TryApplyObjectPose(SelectEnterEventArgs interactable)
+    {
+
+
         GameObject gameObject = interactable.interactableObject.transform.gameObject;
 
         if (gameObject.TryGetComponent(out IGrabbing grabbed))
@@ -39,8 +54,10 @@ public class GameplayHand : BaseHand
         }
     }
 
-    private void TryApplyDefaultPose(SelectExitEventArgs interactable)
+    public void TryApplyDefaultPose(SelectExitEventArgs interactable)
     {
+        selected = false;
+
         GameObject gameObject = interactable.interactableObject.transform.gameObject;
         if (gameObject.TryGetComponent(out Rigidbody rigidbody))
         {

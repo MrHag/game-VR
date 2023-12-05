@@ -15,7 +15,7 @@ public class PulseControler : MonoBehaviour
 
     public MiBand miBand;
 
-    private PulseStatus _pulseStatus = PulseStatus.NORMAL;
+    public PulseStatus _pulseStatus = PulseStatus.NORMAL;
 
     public PulseStatus pulseStatus
     {
@@ -63,6 +63,12 @@ public class PulseControler : MonoBehaviour
 
 
     }
+
+    // void OnValidate()
+    // {
+    //     // pulseStatusChanged?.Invoke(_pulseStatus);
+    //     // print("PULSE IS: " + _pulseStatus.ToString());
+    // }
 
     // Update is called once per frame
     void Update()

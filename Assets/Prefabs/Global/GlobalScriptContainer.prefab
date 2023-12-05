@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miBand: {fileID: 1309409543996502542}
+  _pulseStatus: 2
   pulse: 0
 --- !u!114 &5841814177382538790
 MonoBehaviour:
