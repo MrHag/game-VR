@@ -95,6 +95,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6767493127930249628, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
         type: 3}
+      propertyPath: _potionName
+      value: lilac bottle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767493127930249628, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
       propertyPath: innerColor.a
       value: 0.8
       objectReference: {fileID: 0}
@@ -128,7 +133,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ingredients.Array.data[1]
       value: 
-      objectReference: {fileID: 1586683416149270774, guid: 1cd1f511cb501bd489f354606f059c95,
+      objectReference: {fileID: 1060543563351676592, guid: fb733b841c75267428181e7efe75d7af,
         type: 3}
     - target: {fileID: 6767493127930249628, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
         type: 3}
@@ -136,6 +141,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3947111271693669669, guid: 936cd6bc3c2ed264a97acd28828f0d13,
         type: 3}
+    - target: {fileID: 8819399252295933871, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819399252295933871, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.x
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819399252295933871, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
+      propertyPath: overrideList.Array.data[2].value.z
+      value: 0.39519066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819399252295933871, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819399252295933871, guid: 3ff0bf84f5cc38d49a2ee89a2dc82468,
+        type: 3}
+      propertyPath: overrideList.Array.data[3].value.z
+      value: 0.42745113
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

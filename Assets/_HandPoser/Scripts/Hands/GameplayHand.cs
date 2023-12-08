@@ -8,21 +8,40 @@ public class GameplayHand : BaseHand
 
     [SerializeField] private XRBaseInteractor targetInteractor = null;
 
+
+    public bool selected;
+
     private void OnEnable()
     {
-        targetInteractor.selectEntered.AddListener(TryApplyObjectPose);
-        targetInteractor.selectExited.AddListener(TryApplyDefaultPose);
+        targetInteractor.selectEntered.AddListener(SelectEnter);
+        targetInteractor.selectExited.AddListener(SelectExit);
     }
 
     private void OnDisable()
     {
-        targetInteractor.selectEntered.RemoveListener(TryApplyObjectPose);
-        targetInteractor.selectExited.RemoveListener(TryApplyDefaultPose);
+        targetInteractor.selectEntered.RemoveListener(SelectEnter);
+        targetInteractor.selectExited.RemoveListener(SelectExit);
     }
 
-    private void TryApplyObjectPose(SelectEnterEventArgs interactable)
+    private void SelectEnter(SelectEnterEventArgs interactable)
     {
         GameObject gameObject = interactable.interactableObject.transform.gameObject;
+        selected = true;
+        TryApplyObjectPose(gameObject);
+    }
+
+    private void SelectExit(SelectExitEventArgs interactable)
+    {
+        GameObject gameObject = interactable.interactableObject.transform.gameObject;
+        selected = false;
+        TryApplyDefaultPose(gameObject);
+    }
+
+    public void TryApplyObjectPose(GameObject gameObject)
+    {
+
+
+        //interactable.interactableObject.transform.gameObject;
 
         if (gameObject.TryGetComponent(out IGrabbing grabbed))
         {
@@ -39,9 +58,11 @@ public class GameplayHand : BaseHand
         }
     }
 
-    private void TryApplyDefaultPose(SelectExitEventArgs interactable)
+    public void TryApplyDefaultPose(GameObject gameObject)
     {
-        GameObject gameObject = interactable.interactableObject.transform.gameObject;
+        selected = false;
+
+        //GameObject gameObject = interactable.interactableObject.transform.gameObject;
         if (gameObject.TryGetComponent(out Rigidbody rigidbody))
         {
             rigidbody.isKinematic = false;

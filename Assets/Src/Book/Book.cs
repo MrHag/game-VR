@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using Mono.Cecil;
-using Unity.Mathematics;
 using UnityEngine;
 
 public enum Side
@@ -27,6 +23,8 @@ public class Book : MonoBehaviour
     private Coroutine _leftTransition;
 
     private Coroutine _rightTransition;
+
+    public Audio wrapping;
 
     IEnumerator Transition(float time, int steps, MeshRenderer mesh, string tag, Side side, Action callback)
     {
@@ -62,7 +60,7 @@ public class Book : MonoBehaviour
 
     public void LoadTexture(string tag, Side side)
     {
-
+        wrapping.Play();
         if (side == Side.Left)
         {
             MeshRenderer mesh = leftMeshRender;

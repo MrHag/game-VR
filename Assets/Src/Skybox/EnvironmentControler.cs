@@ -35,6 +35,21 @@ public class EnvironmentControler : MonoBehaviour
 
     private Dictionary<string, List<Potion>> categoryRandomSelect;
 
+    public AudioManager audioManager;
+
+    public MusicPlayer musicPlayer;
+
+
+    public TaggedMusicCategoryContainer taggedMusicCategoryContainer;
+
+    private Dictionary<string, List<AudioClip>> categoryMusic;
+
+    private Dictionary<string, List<AudioClip>> categoryMusicRandomSelect;
+
+    public Audio BottleCrush;
+
+    private string pulseCategory = "NORM";
+
     // Start is called before the first frame update
 
     IEnumerator LightTransition(float time, int steps, Color ambientColor, float reflectionIntensity)
@@ -85,27 +100,37 @@ public class EnvironmentControler : MonoBehaviour
             lightCoroutine = StartCoroutine(LightTransition(transitionTime, steps, env.ambientColor, env.reflectionIntensity));
 
             if (name != "Default")
+            {
                 ChangeRecipe();
+            }
 
         }
     }
 
     void ChangeRecipe()
     {
-
-        string category = "";
-
-        switch (pulseControler.pulseStatus)
-        {
-            case PulseStatus.LOW: category = "LOW"; break;
-            case PulseStatus.NORMAL: category = "NORM"; break;
-            case PulseStatus.HIGH: category = "HIGH"; break;
-        }
-
-        Potion pot = GetRandomPotion(category);
+        Potion pot = GetRandomPotion(pulseCategory);
 
         book.LoadTexture(pot.PotionName, Side.Left);
         book.LoadTexture(pot.PotionName, Side.Right);
+    }
+
+
+    void ChangeMusic(string environment)
+    {
+        AudioClip mus = GetRandomMusic(environment);
+
+        musicPlayer.Play(mus);
+    }
+
+    void OnPulseChanged(PulseStatus status)
+    {
+        switch (status)
+        {
+            case PulseStatus.LOW: pulseCategory = "LOW"; break;
+            case PulseStatus.NORMAL: pulseCategory = "NORM"; break;
+            case PulseStatus.HIGH: pulseCategory = "HIGH"; break;
+        }
     }
 
     IEnumerator DelayLoadEnvironment(string environment)
@@ -119,6 +144,10 @@ public class EnvironmentControler : MonoBehaviour
     {
         if (potionEnvironment.TryGetValue(potion.PotionName, out string environmentName))
         {
+            BottleCrush.Play();
+
+            ChangeMusic(environmentName);
+
             Color smokeColor = potion.color;
             smokeColor.a = 1.0f;
             // smokeColor.a = smoke.baseColor.a;
@@ -150,6 +179,23 @@ public class EnvironmentControler : MonoBehaviour
         return pot;
     }
 
+    AudioClip GetRandomMusic(string category)
+    {
+        List<AudioClip> musics = categoryMusicRandomSelect[category];
+
+        if (musics.Count == 0)
+        {
+            musics = new List<AudioClip>(categoryMusic[category]);
+            categoryMusicRandomSelect[category] = musics;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, musics.Count - 1);
+        AudioClip mus = musics[randomIndex];
+        musics.RemoveRange(randomIndex, 1);
+
+        return mus;
+    }
+
     void Start()
     {
         environments = new Dictionary<string, Environment>();
@@ -173,11 +219,25 @@ public class EnvironmentControler : MonoBehaviour
             categoryRandomSelect[elem.tag] = new List<Potion>(elem.value);
         }
 
+
+        categoryMusic = new Dictionary<string, List<AudioClip>>();
+
+        categoryMusicRandomSelect = new Dictionary<string, List<AudioClip>>();
+
+        foreach (var elem in taggedMusicCategoryContainer.elements)
+        {
+            categoryMusic[elem.tag] = elem.value;
+
+            categoryMusicRandomSelect[elem.tag] = new List<AudioClip>(elem.value);
+        }
+
         bottleTrigger.PotionTriggered += OnBottleThrowed;
+
+        pulseControler.pulseStatusChanged += OnPulseChanged;
 
         LoadEnvironment("Base_1");
 
-        ChangeRecipe();
+        ChangeMusic("Base_1");
     }
 
 }

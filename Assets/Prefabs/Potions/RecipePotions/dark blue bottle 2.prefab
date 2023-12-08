@@ -75,6 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433421986272401996, guid: f38e25ffdbf12714f8a5a6e6f103da48,
         type: 3}
+      propertyPath: _potionName
+      value: dark blue bottle 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433421986272401996, guid: f38e25ffdbf12714f8a5a6e6f103da48,
+        type: 3}
       propertyPath: innerColor.a
       value: 0.8
       objectReference: {fileID: 0}
@@ -108,7 +113,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ingredients.Array.data[1]
       value: 
-      objectReference: {fileID: 3343967252244452783, guid: ed77e134c1564d240a0064665fa250b4,
+      objectReference: {fileID: 4880290088728063583, guid: b78c8009d5b336740af0e18d0d20025d,
         type: 3}
     - target: {fileID: 1433421986272401996, guid: f38e25ffdbf12714f8a5a6e6f103da48,
         type: 3}

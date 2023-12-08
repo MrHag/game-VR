@@ -62,10 +62,10 @@ public class Ingredient : MonoBehaviour, IGrabbing, ISpawnControled, IWorkZone
 
     public void OnGrabEnd()
     {
-        if (unactivityTimer != null)
-        {
-            StopCoroutine(unactivityTimer);
-        }
-        unactivityTimer = StartCoroutine(StartTimer());
+        // if (unactivityTimer != null)
+        // {
+        //     StopCoroutine(unactivityTimer);
+        // }
+        // unactivityTimer = StartCoroutine(StartTimer());
     }
 }

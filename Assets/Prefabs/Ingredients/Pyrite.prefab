@@ -14,6 +14,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4507700561785258165, guid: f469edfbf855cf94fbaac3fec95450d7,
         type: 3}
+    - target: {fileID: -3623231989039855003, guid: 3a22de1305a2b8847a213b0fb554beeb,
+        type: 3}
+      propertyPath: _ingredientName
+      value: Pyrite
+      objectReference: {fileID: 0}
     - target: {fileID: -3158735246350594090, guid: 3a22de1305a2b8847a213b0fb554beeb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -86,6 +91,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3676756414835494388, guid: 3a22de1305a2b8847a213b0fb554beeb,
+        type: 3}
+      propertyPath: pose
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b1689eb46332714f8e2b679ce53d472,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
