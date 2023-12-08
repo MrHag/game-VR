@@ -6518,6 +6518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetController: {fileID: 2011091126}
   uiObject: {fileID: 950435100}
+  hand: {fileID: 0}
 --- !u!1 &1205799947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -167406974193565132, guid: bf6fe1eacb051f44cb37db63c03095b0,
@@ -10434,6 +10435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080338664402775242, guid: 1dc85a4faa1f4b64787ad97365495e68,
         type: 3}
+      propertyPath: miBand
+      value: 
+      objectReference: {fileID: 1789063112}
+    - target: {fileID: 5080338664402775242, guid: 1dc85a4faa1f4b64787ad97365495e68,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -10740,7 +10746,8 @@ PrefabInstance:
       propertyPath: elements.Array.data[13].value.reflectionIntensity
       value: 0.35
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1309409543996502542, guid: 1dc85a4faa1f4b64787ad97365495e68, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5605903470914884880, guid: 1dc85a4faa1f4b64787ad97365495e68,
@@ -10754,11 +10761,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8822320986615932797, guid: 1dc85a4faa1f4b64787ad97365495e68,
         type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 1789063100}
+      insertIndex: 1
+      addedObject: {fileID: 1789063112}
+    - targetCorrespondingSourceObject: {fileID: 8822320986615932797, guid: 1dc85a4faa1f4b64787ad97365495e68,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1789063111}
     - targetCorrespondingSourceObject: {fileID: 8822320986615932797, guid: 1dc85a4faa1f4b64787ad97365495e68,
         type: 3}
       insertIndex: 5
+      addedObject: {fileID: 1789063100}
+    - targetCorrespondingSourceObject: {fileID: 8822320986615932797, guid: 1dc85a4faa1f4b64787ad97365495e68,
+        type: 3}
+      insertIndex: 6
       addedObject: {fileID: 1789063109}
     - targetCorrespondingSourceObject: {fileID: 8822320986615932797, guid: 1dc85a4faa1f4b64787ad97365495e68,
         type: 3}
@@ -10903,6 +10918,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 327549228}
+--- !u!114 &1789063111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789063099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e2e47f5f3d6841bafb0c46d11a3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1789063112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789063099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb56d477b9f3c04598bd5d876a7d263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miBandClient: {fileID: 1789063111}
 --- !u!1 &1795776111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6432962378162008630, guid: f0ce8be4cb6683448b0a3035d5ef12be,

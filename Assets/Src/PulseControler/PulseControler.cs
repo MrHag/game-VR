@@ -13,7 +13,7 @@ public enum PulseStatus
 public class PulseControler : MonoBehaviour
 {
 
-    public MiBand miBand;
+    public MiBandNet miBand;
 
     public PulseStatus _pulseStatus = PulseStatus.NORMAL;
 
