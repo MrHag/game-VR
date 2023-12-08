@@ -11,14 +11,24 @@ public class UiSwitch : MonoBehaviour
 
     [SerializeField] private GameplayHand hand = null;
 
+    [SerializeField] private Pose pokePose = null;
+
     private void UIPressed(InputAction.CallbackContext context)
     {
         uiObject.SetActive(true);
+        if (!hand.selected)
+        {
+            hand.ApplyPose(pokePose);
+        }
     }
 
     private void UIReleased(InputAction.CallbackContext context)
     {
         uiObject.SetActive(false);
+        if (!hand.selected)
+        {
+            hand.ApplyDefaultPose();
+        }
     }
 
     private void OnEnable()

@@ -29,7 +29,7 @@ public class PulseControler : MonoBehaviour
             if (_pulseStatus != value)
             {
                 _pulseStatus = value;
-                pulseStatusChanged?.Invoke(_pulseStatus);
+                pulseStatusChanged.Invoke(_pulseStatus);
                 print("PULSE IS: " + _pulseStatus.ToString());
             }
         }
@@ -69,10 +69,4 @@ public class PulseControler : MonoBehaviour
     //     // pulseStatusChanged?.Invoke(_pulseStatus);
     //     // print("PULSE IS: " + _pulseStatus.ToString());
     // }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

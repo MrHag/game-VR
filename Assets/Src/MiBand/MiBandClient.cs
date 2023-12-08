@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -13,14 +14,11 @@ public class MiBandClient : MonoBehaviour
     private TcpClient socket;
 
     private StreamReader reader;
-
-    private Task<string> readTask;
-
-    private Coroutine coroutine;
-
     public event Action<string> OnData;
 
-    private volatile bool work;
+    volatile bool work = false;
+
+    ConcurrentQueue<string> cq;
 
     void ProcessConnection()
     {
@@ -39,10 +37,12 @@ public class MiBandClient : MonoBehaviour
                 reader = new StreamReader(stream, Encoding.UTF8);
 
                 print("start read");
-                while (true)
+                while (work)
                 {
                     var res = reader.ReadLine();
-                    OnData.Invoke(res);
+
+                    cq.Enqueue(res);
+
                     if (reader.EndOfStream)
                         break;
                 }
@@ -65,6 +65,7 @@ public class MiBandClient : MonoBehaviour
 
     void OnEnable()
     {
+        cq = new ConcurrentQueue<string>();
         work = true;
         Thread thread = new Thread(new ThreadStart(ProcessConnection));
         thread.Start();
@@ -73,5 +74,13 @@ public class MiBandClient : MonoBehaviour
     void OnDisable()
     {
         work = false;
+    }
+
+    void Update()
+    {
+        if (!cq.IsEmpty && cq.TryDequeue(out string res))
+        {
+            OnData?.Invoke(res);
+        }
     }
 }
