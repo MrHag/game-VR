@@ -1,2 +1,10 @@
 /Library
+/obj
+/Logs
+**/*.log
+/Temp
+*.csproj
+/UserSettings
+/MiBand_Build/**
 .vscode
+.vs
